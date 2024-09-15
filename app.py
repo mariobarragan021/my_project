@@ -6,15 +6,22 @@ import plotly.express as px
 
 data=pd.read_csv('./vehicles_us.csv')
 
-data.info()
+st.header('Datos de Vehiculos')
 
-#st.header('Datos de Vehiculos')
+hist_button = st.button('Construir histograma')
 
-#hist_button = st.button('Construir histograma')
+if hist_button:
+    st.write('Creación de un histograma para los cilindros de los coches')
 
-#if hist_button:
-    #st.write('Creación de un histograma para los datos de los coches')
+    fig = px.histogram(data, x="cylinders")
 
-    #fig = px.histogram(data, x="odometer")
+    st.plotly_chart(fig, use_container_width=True)
 
-    #st.plotly_chart(fig, use_container_width=True)
+dispersion_button = st.button('Construir Diagrama de dispersion')
+
+if dispersion_button:
+    st.write('Creación de un diagrama de dispersion para el odometer')
+
+    figure = px.scatter(data, x="odometer" y="price")
+
+    figure.show()
