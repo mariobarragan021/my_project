@@ -22,6 +22,6 @@ dispersion_button = st.button('Construir Diagrama de dispersion')
 if dispersion_button:
     st.write('Creación de un diagrama de dispersion para el odometer')
 
-    figure = px.scatter(data, x="odometer" y="price")
+    figure = px.scatter(data, x="odometer" , y="price")
 
-    figure.show()
+    st.plotly_chart(figure, use_container_width=True)
